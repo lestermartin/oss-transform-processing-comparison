@@ -75,4 +75,8 @@ logout
 * File Formats
   * Delimeted Values
   * [XML](./file-formats/xml/README.md)
-  * JSON
+  * [JSON](./file-formats/json/README.md)
+  * Avro
+  * Parquet
+  * ORC
+

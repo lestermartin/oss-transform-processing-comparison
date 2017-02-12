@@ -16,7 +16,7 @@ See the **Script Execution** section of the [oss-transform-processing-comparison
 Execute [`read-xml.pig`](read-xml.pig) to read in this data and cast appropriately before describing and dumping the dataset as shown in the following output.
 
 ```
-formatted: {chararray,chararray,float,int}
+formatted: {title: chararray,book: chararray,price: float,year: int}
 (Programming Pig,Alan Gates,23.17,2016)
 (Apache Hive Essentials,Dayong Du,39.99,2015)
 (Spark in Action,Petar Zecevic,41.24,2016)

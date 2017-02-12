@@ -1,0 +1,3 @@
+val df = sqlContext.read.format("json").load("/otpc/ff/json/data/catalog.json")
+df.printSchema()
+df.show()

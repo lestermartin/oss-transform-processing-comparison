@@ -5,10 +5,10 @@ raw =  LOAD '/otpc/ff/xml/catalog.xml'
    USING org.apache.pig.piggybank.storage.XMLLoader('BOOK') AS (x:chararray);
 
 formatted = FOREACH raw GENERATE 
-           XPath(x, 'BOOK/TITLE'), 
-           XPath(x, 'BOOK/AUTHOR'),
-   (float) XPath(x, 'BOOK/PRICE'), 
-     (int) XPath(x, 'BOOK/YEAR');
+           XPath(x, 'BOOK/TITLE')  AS title, 
+           XPath(x, 'BOOK/AUTHOR') AS author,
+   (float) XPath(x, 'BOOK/PRICE')  AS price, 
+     (int) XPath(x, 'BOOK/YEAR')   AS year;
 
 DESCRIBE formatted;
 DUMP formatted;

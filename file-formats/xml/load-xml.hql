@@ -1,4 +1,4 @@
--- create the table mapped to loacation of flattened xml file(s)
+-- create the table mapped to location of flattened xml file(s)
 DROP TABLE IF EXISTS book_catalog_xml;
 
 CREATE EXTERNAL TABLE book_catalog_xml(str string)
