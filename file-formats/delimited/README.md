@@ -50,7 +50,7 @@ Execute [`load-del.hql`](load-del.hql) to create an external table to map to the
 
 ### Spark
 
-Execute [`read-del.spark`](read-del.spark) to read the file and then apply schema to it before converting it to a DataFrame as shown in the following output.
+Execute [`read-del.spark`](read-del.spark) to read the file as an RDD and then apply schema to it before converting it to a DataFrame as shown in the following output.
 
 ```
 root
@@ -69,4 +69,4 @@ root
 
 ## Results
 
-Both Pig and Hive are in there elements here.  Spark has to take a roundabout way to eventually become a DataFrame which is not exhaustive, but is clearly a bit more intensive than the other frameworks.
+Both Pig and Hive are in there elements here.  Spark has to take a roundabout way via the RDD API to eventually become a DataFrame which is not exhaustive, but is clearly a bit more intensive than the other frameworks.
