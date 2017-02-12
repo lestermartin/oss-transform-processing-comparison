@@ -44,7 +44,7 @@ Perform the operations described in [loading the data set](DATASET.md).
   * [Delimeted Values](./file-formats/delimited/README.md)
   * [XML](./file-formats/xml/README.md)
   * [JSON](./file-formats/json/README.md)
-  * Avro
-  * Parquet
-  * ORC
-
+  * To be explored (later)
+    * Other "normal" big data formats such as Avro, Parquet, ORC
+    * Esoteric formats such as EBCDIC and compact RYO solns
+* [Source to Target Mapping](./mapping/README.md)

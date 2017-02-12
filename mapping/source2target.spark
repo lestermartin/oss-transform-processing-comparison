@@ -1,0 +1,12 @@
+import org.apache.spark.sql.functions.lit
+
+val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
+
+val airport_target = hiveContext.table("airport_raw")
+                     .drop("lat").drop("long")
+                     .withColumnRenamed("airport_code", "airport_cd")
+                     .withColumnRenamed("airport", "name")
+                     .withColumn("governing_agency", lit("FAA"))
+
+airport_target.printSchema()
+airport_target.show(5)
