@@ -1,0 +1,11 @@
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+
+val catalogRDD = sc.textFile("hdfs:///otpc/ff/del/data/catalog.del")
+
+case class Book(title: String, author: String, price: Float, year: Int)
+
+val catalogDF = catalogFile.map(b => b.split('|')).map(
+    b => Book(b(0), b(1), b(2).toFloat, b(3).toInt)).toDF()
+
+catalogDF.printSchema()
+catalogDF.show()

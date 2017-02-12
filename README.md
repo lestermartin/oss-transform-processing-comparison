@@ -73,7 +73,7 @@ logout
 ## The Comparison!!
 
 * File Formats
-  * Delimeted Values
+  * [Delimeted Values](./file-formats/delimited/README.md)
   * [XML](./file-formats/xml/README.md)
   * [JSON](./file-formats/json/README.md)
   * Avro
