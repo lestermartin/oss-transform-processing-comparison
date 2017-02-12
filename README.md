@@ -32,7 +32,7 @@ I'm using the Ambari Hive View to run these scripts, but you could use Hue, the 
 
 ##### Spark
 
-I'm using [Zeppelin]{http://zeppelin.apache.org/} (included with the Hortonworks Sandbox), but you could use another web notebook as well as the Spark shell. 
+I'm using [Zeppelin](http://zeppelin.apache.org/) (included with the Hortonworks Sandbox), but you could use another web notebook as well as the Spark shell. 
 
 ### Data Set
 
