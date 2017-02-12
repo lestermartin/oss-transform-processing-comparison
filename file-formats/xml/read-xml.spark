@@ -1,0 +1,3 @@
+val df = sqlContext.read.format("com.databricks.spark.xml").option("rowTag", "BOOK").load("/otpc/ff/xml/catalog.xml")
+df.printSchema()
+df.show()
