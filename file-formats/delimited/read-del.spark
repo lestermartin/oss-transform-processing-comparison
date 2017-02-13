@@ -1,5 +1,3 @@
-val sqlContext = new org.apache.spark.sql.hive.HiveContext(sc)
-
 val catalogRDD = sc.textFile("hdfs:///otpc/ff/del/data/catalog.del")
 
 case class Book(title: String, author: String, price: Float, year: Int)

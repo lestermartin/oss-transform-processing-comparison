@@ -10,7 +10,7 @@ This page compares using Pig, Hive and Spark for the classic ETL need to map one
 
 ## Setup
 
-Ensure the operations described in [loading the data set](DATASET.md) are completed.
+Ensure the operations described in [loading the data set](../DATASET.md) are completed.
 
 ## Use Case
 
@@ -46,7 +46,7 @@ Create a new dataset with the following requirements _(more complicated scenario
 
 ## Script Execution
 
-See the **Script Execution** section of the [oss-transform-processing-comparison](../../README.md#script-execution) main page for options on running these scripts.
+See the **Script Execution** section of the [oss-transform-processing-comparison](../README.md#script-execution) main page for options on running these scripts.
 
 ### Pig
 
@@ -106,7 +106,6 @@ root
 +----------+-------------------+---------------+-----+-------+----------------+
 |airport_cd|               name|           city|state|country|governing_agency|
 +----------+-------------------+---------------+-----+-------+----------------+
-|      iata|            airport|           city|state|country|             FAA|
 |       00M|            Thigpen|     BaySprings|   MS|    USA|             FAA|
 |       00R|LivingstonMunicipal|     Livingston|   TX|    USA|             FAA|
 |       00V|         MeadowLake|ColoradoSprings|   CO|    USA|             FAA|
