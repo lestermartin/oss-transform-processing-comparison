@@ -48,3 +48,4 @@ Perform the operations described in [loading the data set](DATASET.md).
     * Other "normal" big data formats such as Avro, Parquet, ORC
     * Esoteric formats such as EBCDIC and compact RYO solns
 * [Source to Target Mapping](./mapping/README.md)
+* [Data Quality](./data-quality/README.md)
