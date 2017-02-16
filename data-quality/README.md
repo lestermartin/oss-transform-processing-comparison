@@ -1,6 +1,6 @@
-# OTPC: Data Quality and Profiling
+# OTPC: Data Quality
 
-This page compares using Pig, Hive and Spark in the data quality and profiling domain which focus on determining accuracy and completeness, as well as correcting/enhancing, input data.
+This page compares using Pig, Hive and Spark in the data quality domain which focuses on detecting/correcting/enhancing input data.
 
 ## Setup
 
