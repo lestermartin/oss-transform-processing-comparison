@@ -1,0 +1,9 @@
+val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
+
+val airport_validated = hiveContext.table("airport_raw")
+          .selectExpr("airport_code", "cast(latitude as float) latitude", "cast(longitude as float) longitude")
+          .filter("latitude is not null").filter("longitude is not null")
+          .filter("latitude <= 70").filter("longitude >= -170")
+
+airport_validated.printSchema()
+airport_validated.count()

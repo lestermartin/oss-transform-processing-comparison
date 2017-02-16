@@ -25,8 +25,8 @@ The `airport_raw` table has the following format.
 | city          | string     |          |
 | state         | string     |          |
 | country       | string     |          |
-| lat           | string     |          |
-| long          | string     |          |
+| latitude      | string     |          |
+| longitude     | string     |          |
 +---------------+------------+----------+--+
 ```
 
@@ -40,8 +40,8 @@ Create a new dataset with the following requirements _(more complicated scenario
   * `state`
   * `country`
 * Exclude the following columns
-  * `lat`
-  * `long`
+  * `latitude`
+  * `longitude`
 * Hard-code a new `governing_agency` column with the value `FAA`
 
 ## Script Execution

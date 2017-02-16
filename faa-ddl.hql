@@ -18,7 +18,7 @@ DROP TABLE IF EXISTS airport_raw;
 
 CREATE EXTERNAL TABLE airport_raw(
         airport_code string, airport string, city string,
-        state string, country string, lat string, long string)
+        state string, country string, latitude string, longitude string)
     ROW FORMAT DELIMITED
     FIELDS TERMINATED BY ','
     STORED AS TEXTFILE
