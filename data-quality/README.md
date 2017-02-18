@@ -22,15 +22,16 @@ For simplicity's sake, let's just assume that if the `latitude` value is > 70 or
 
 ### String Validation
 
-Simulate and address validation/standardization function by concatenating a lowercase version of the `state` with an uppercase version of `city`.
+A standard string validation routine is to eliminate any extra spaces that may be present and then conform the string to a max length.  For this example, trim any leading and trailing spaces from the `city` value from the `airport_raw` dataset.  Then identify any records that are longer than 30 characters _(this is just a figurative example and in reality we would look to allow something much larger such as 100 or 150 characters)_ before simply truncating at that point and limiting the string to that size in the transformed dataset.
 
+### Additional Validations
 
+There are many additional concepts addressed in modern ETL applications in this data quality family that can be explored (later) which include.
 
-
-### WHAT'S NEXT??
-
-
-
+* Date format validation and conversion
+* Currency validation
+* Additional string validations such as pattern matching for things like SSNs and phone numbers
+* Data enrichment
 
 
 ## Script Execution
@@ -42,6 +43,15 @@ See the **Script Execution** section of the [oss-transform-processing-comparison
 #### Numeric Validation
 
 [`numeric-validation.pig`](numeric-validation.pig) shows a series of steps that you can attack in a methodical pipelining style to finalized a dataset with just the validated records.  See the Hive description of this use case to understand why `(tot_not_null,3355)` is the correct number of records to end up with.
+
+#### String Validation
+
+[`string-validation.pig`](string-validation.pig) shows how to isolate the records whose field is too long and then does simple nesting of functions to trim any unwanted spaces and then grabbing only the first 30 characters for the finalized version of the dataset.  The following output shows the single record that was too big as well as the schema of the finalized dataset.
+
+```
+(PWK,Palwaukee,Chicago/Wheeling/ProspectHeights,IL,USA,42.11418083,-87.90148083)
+source_airport_validated: {airport_code: chararray,airport: chararray,city: chararray,state: chararray,country: chararray}
+```
 
 
 ### Hive
@@ -119,13 +129,45 @@ Check out [`numeric-range.hql`](numeric-range.hql) for an illustrative example o
 
 #### String Validation
 
-UP NEXT!!!
+The following query shows us that there is only a single record that is longer than 30 characters in length.
 
+```
+0: jdbc:hive2://127.0.0.1:10000> SELECT COUNT(*) FROM airport_raw WHERE LENGTH(city) > 30;
++------+--+
+| _c0  |
++------+--+
+| 1    |
++------+--+
+1 row selected (5.249 seconds)
+```
 
+The problem is easily solved with a simple query as shown in [`string-validation.hql`](string-validation.hql) which grabs the first 30 characters after trimming leading/trailing spaces.  The result is that the "final" table only holds the properly validated/converted records.
 
+```
+0: jdbc:hive2://127.0.0.1:10000> SELECT COUNT(*) FROM partial_airport_validated WHERE LENGTH(city) > 30;
++------+--+
+| _c0  |
++------+--+
+| 0    |
++------+--+
+1 row selected (5.346 seconds)
+```
 
+This approach did not store a "converted" table like done with the numeric validation, but for reporting purposes, a simple query such as presented in [`string-outliers.hql`](string-outliers.hql) could be run to store the results (below) for further investigation.  Generally speaking, these kinds of string length violations do not prevent records from being loaded, but again, could be reported on.
+
+```
+0: jdbc:hive2://127.0.0.1:10000> SELECT airport_code, city FROM airport_raw WHERE LENGTH(TRIM(city)) > 30;
++---------------+-----------------------------------+--+
+| airport_code  |               city                |
++---------------+-----------------------------------+--+
+| PWK           | Chicago/Wheeling/ProspectHeights  |
++---------------+-----------------------------------+--+
+1 row selected (0.14 seconds)
+```
 
 ### Spark
+
+#### Numeric Validation
 
 Spark can method chain a series of DataFrame transformations to quickly get to the validated records.  Execute [`numeric-validation.spark`](numeric-validation.spark) to see the following output which shows the correct number of final records; 3355.
 
@@ -137,7 +179,30 @@ root
 res40: Long = 3355
 ```
 
+#### String Validation
+
+As shown in [`string-validation.spark`](string-validation.spark), this is solved in a single line of code with chained transformations to trim possible unwanted spaces and then conform the newly created attribute to only be the desired length.  The following is the output from this script and shows there was a single record initially and then no records with this problem.
+
+```
+before_too_long_cities: org.apache.spark.sql.DataFrame = [airport_code: string, airport: string, city: string, state: string, country: string, latitude: string, longitude: string]res30: Long = 1
+airport_validated: org.apache.spark.sql.DataFrame = [airport_code: string, airport: string, state: string, country: string, latitude: string, longitude: string, city: string]
+res30: Long = 1
+airport_validated: org.apache.spark.sql.DataFrame = [airport_code: string, airport: string, state: string, country: string, latitude: string, longitude: string, city: string]
+root
+ |-- airport_code: string (nullable = true)
+ |-- airport: string (nullable = true)
+ |-- state: string (nullable = true)
+ |-- country: string (nullable = true)
+ |-- latitude: string (nullable = true)
+ |-- longitude: string (nullable = true)
+ |-- city: string (nullable = true)
+after_too_long_cities: org.apache.spark.sql.DataFrame = [airport_code: string, airport: string, state: string, country: string, latitude: string, longitude: string, city: string]
+res32: Long = 0
+```
+
 
 ## Results
 
-IN PROGRESS...
+All three frameworks identify the data problems and rectify them in a pretty consistent way just as you would expect to address them in just about any programming environment.  At least in my opinion, Hive really is not the tool for a series of data testing and conforming logic due to its need to continually build tables for the output of each step along the way.
+
+Pig and Hive tackle this more appropriately (again, at least in my opinion).  Of those two, Spark ends up with a much more crisp and elegant solution than Pig.

@@ -1,0 +1,17 @@
+val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
+
+//see how many city names are too long
+val before_too_long_cities = hiveContext.table("airport_raw")
+        .filter("length(trim(city)) > 30")
+before_too_long_cities.count()
+
+val airport_validated = hiveContext.table("airport_raw")
+        .withColumnRenamed("city", "city_orig")
+        .withColumn("city", substring(trim($"city_orig"),1,30))
+        .drop("city_orig")
+airport_validated.printSchema()
+
+//see if any are left
+val after_too_long_cities = airport_validated
+    .filter("length(trim(city)) > 30")
+after_too_long_cities.count()
