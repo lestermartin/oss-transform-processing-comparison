@@ -96,6 +96,6 @@ Here is the output when requested only on a few columns.
 
 ## Results
 
-If you do a little bit of coding around the DataFu library, Pig has a solid chance of satisfying of of your baseline statistics functions, but the inherent abilities of Hive and Spark make them much easier to use.
+If you do a little bit of coding around the DataFu library, Pig has a solid chance of satisfying all of your baseline statistics functions, but the inherent abilities of Hive and Spark make them much easier to use.
 
-As Hive and Spark end up presenting different statistics and on a different set of datatypes, you really need to couple their combined output to satisfy the base statistics we were trying to attain in this categy.
+As Hive and Spark end up presenting different statistics and on a different set of datatypes, you really need to couple their combined output to satisfy the base statistics we were trying to attain in this category.

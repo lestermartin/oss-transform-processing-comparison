@@ -50,3 +50,4 @@ Perform the operations described in [loading the data set](DATASET.md).
 * [Source to Target Mapping](./mapping/README.md)
 * [Data Quality](./data-quality/README.md)
 * [Data Profiling](./profiling/README.md)
+* [Core Processing](./core-processing/README.md)
