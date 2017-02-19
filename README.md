@@ -49,3 +49,4 @@ Perform the operations described in [loading the data set](DATASET.md).
     * Esoteric formats such as EBCDIC and compact RYO solns
 * [Source to Target Mapping](./mapping/README.md)
 * [Data Quality](./data-quality/README.md)
+* [Data Profiling](./profiling/README.md)

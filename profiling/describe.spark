@@ -1,0 +1,5 @@
+val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
+
+val flight = hiveContext.table("flight")
+
+flight.describe().show()

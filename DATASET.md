@@ -55,3 +55,7 @@ logout
 Map these "raw" files with `ENTITY_raw` EXTERNAL Hive tables so that in addition to Hive being able to use them, Pig can leverage them via `HCatalog` and Spark can via the `HiveContext`.
 
 Execute [`faa-ddl.hql`](faa-ddl.hql) to create these tables.
+
+### Create Managed Tables
+
+Execute [`orc-ddl.hql`](orc-ddl.hql) to build optimized Hive managed tables with appropriate datatypes.
