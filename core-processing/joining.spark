@@ -1,0 +1,14 @@
+val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
+
+val flights = hiveContext.table("flight")
+
+val planes = hiveContext.table("plane")
+        .select("tail_number", "year") //just keep two cols
+        .withColumnRenamed("year", "plane_built")
+
+val augmented_flights = flights.join(planes)
+        .where($"tail_num" === $"tail_number")
+        .drop("tail_number")
+        
+augmented_flights.printSchema()
+augmented_flights.show(3)

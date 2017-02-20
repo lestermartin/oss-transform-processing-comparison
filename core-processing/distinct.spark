@@ -1,0 +1,14 @@
+val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
+
+val distinct_aircraft_types = hiveContext.table("plane")
+        .select("aircraft_type")
+        .distinct()
+        
+distinct_aircraft_types.show()
+
+val rotor_makers = hiveContext.table("plane")
+        .filter("aircraft_type = 'Rotorcraft'")
+        .select("manufacturer")
+        .distinct()
+        
+rotor_makers.show()

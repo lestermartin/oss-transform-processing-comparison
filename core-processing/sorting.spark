@@ -1,0 +1,5 @@
+val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
+
+val longestDepartureDelays = hiveContext.table("flight").sort($"dep_delay".desc, $"unique_carrier", $"flight_num")
+
+longestDepartureDelays.show(5)

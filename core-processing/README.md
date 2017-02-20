@@ -22,10 +22,11 @@ Simple activity for Pig as shown in [`filtering.pig`](filtering.pig).
 
 #### Hive
 
-[`filtering.hql`] shows it just doesn't get any simplier that this.
+[`filtering.hql`](filtering.hql) shows it just doesn't get any simplier that this.
 
 #### Spark
 
+Just as simple with the DataFrame API; see [`filtering.spark`](filtering.spark).
 
 ### Sorting
 
@@ -42,6 +43,7 @@ Easy to do in SQL as visualized in [`sorting.hql`](sorting.hql).
 
 #### Spark
 
+Relatively straightforward as [`sorting.spark`](sorting.spark) expresses.
 
 ### Joining
 
@@ -55,8 +57,9 @@ This gets a bit "chatty" in Pig Latin as visualized in [`joining.pig`](joining.p
 
 This can easily be done with SQL as seen in [`joining.hql`](joining.hql).
 
-
 #### Spark
+
+Using the DataFrame API in Spark SQL does look at bit more "involved" than simply SQL as you can tell by viewing [`joining.spark`](joining.spark).
 
 ### Distinct Values
 
@@ -120,6 +123,36 @@ Distinct manufacturers of rotorcraft.
 
 #### Spark
 
+See the code in [`distinct.spark`](distinct.spark) which displays the following results.
+
+Distinct aircraft types.
+
+```
++--------------------+
+|       aircraft_type|
++--------------------+
+|          Rotorcraft|
+|Fixed Wing Single...|
+|                null|
+|             Balloon|
+|Fixed Wing Multi-...|
++--------------------+
+```
+
+Distinct manufacturers of rotorcraft.
+
+```
++--------------------+
+|        manufacturer|
++--------------------+
+|                BELL|
+|            SIKORSKY|
+|          AGUSTA SPA|
+|        AEROSPATIALE|
+|COBB INTL/DBA ROT...|
++--------------------+
+```
+
 ### Aggregation
 
 Determine the average `dep_delay` and average `taxi_out` values by aggregating the `origin` airport for all `flight` records.
@@ -155,17 +188,22 @@ Run the query at [`aggregate.hql`](aggregate.hql) to generate the following resu
 
 #### Spark
 
+Run the code in [`aggregate.spark`](aggregate.spark) to generate the following results.
 
-
-
-
-
-
-
-
+```
++------+------------------+------------------+
+|origin|     avg_dep_delay|      avg_taxi_out|
++------+------------------+------------------+
+|   PIR|              49.5|              14.0|
+|   ACY|35.916666666666664|11.833333333333334|
+|   ACK|25.558333333333334|            20.625|
+|   CEC| 23.40764331210191|12.773885350318471|
+|   LMT| 23.40268456375839|11.208053691275168|
++------+------------------+------------------+
+```
 
 ## Results
 
-If you do a little bit of coding around the DataFu library, Pig has a solid chance of satisfying all of your baseline statistics functions, but the inherent abilities of Hive and Spark make them much easier to use.
+Hive is the slight winner in the space as everyone speaks the "language of SQL" and these basic operations presented above are very well known by almost all folks who work with data.
 
-As Hive and Spark end up presenting different statistics and on a different set of datatypes, you really need to couple their combined output to satisfy the base statistics we were trying to attain in this category.
+I only gave Hive the "slight" connotation as Pig and Spark are both equally capable in these spaces, but I fear the masses will think they are a bit "chatty" to get the job done.  As is often the case, it is a matter of style.

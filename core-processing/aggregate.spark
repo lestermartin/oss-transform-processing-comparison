@@ -1,0 +1,11 @@
+val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
+
+val sorted_orig_timings = hiveContext.table("flight")
+        .select("origin", "dep_delay", "taxi_out")
+        .groupBy("origin").avg()
+        .withColumnRenamed("avg(dep_delay)", "avg_dep_delay")
+        .withColumnRenamed("avg(taxi_out)",  "avg_taxi_out")
+        .sort($"avg_dep_delay".desc)
+        
+sorted_orig_timings.printSchema()
+sorted_orig_timings.show(5)

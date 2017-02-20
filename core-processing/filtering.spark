@@ -1,0 +1,5 @@
+val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
+
+val texasAirports = hiveContext.table("airport").filter("state = 'TX'")
+
+texasAirports.show(5)
