@@ -30,7 +30,7 @@ The `airport_raw` table has the following format.
 +---------------+------------+----------+--+
 ```
 
-Create a new dataset with the following requirements _(more complicated scenarios such as data ranges, lookups, type conversion, **eliminating header rows**, etc are described in ()XXX DON'T FORGET TO ADD LINK TO Data Quality MARKDOWN FILE XXX)_
+Create a new dataset with the following requirements _(more complicated scenarios such as data ranges, lookups, type conversion, **eliminating header rows**, etc are described in [Data Quality](../data-quality/README.md))_
 
 * Change column names
   * `airport_code` to `airport_cd`

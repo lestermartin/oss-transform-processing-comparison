@@ -205,4 +205,4 @@ res32: Long = 0
 
 All three frameworks identify the data problems and rectify them in a pretty consistent way just as you would expect to address them in just about any programming environment.  At least in my opinion, Hive really is not the tool for a series of data testing and conforming logic due to its need to continually build tables for the output of each step along the way.
 
-Pig and Spark tackle this more appropriately (again, at least in my opinion).  Both off crisp and elegant solutions with the differnce really being a matter of style.
+Pig and Spark tackle this more appropriately (again, at least in my opinion).  Both off crisp and elegant solutions with the difference really being a matter of style.
