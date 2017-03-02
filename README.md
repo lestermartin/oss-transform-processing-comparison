@@ -11,7 +11,6 @@ alt="Ingesting into HDFS" width="240" height="180" border="10" /></a>
 
 <a href="//www.slideshare.net/lestermartin/transformation-processing-smackdown-spark-vs-hive-vs-pig" title="Transformation Processing Smackdown; Spark vs Hive vs Pig" target="_blank">Transformation Processing Smackdown; Spark vs Hive vs Pig</a>
 
-
 ## Setup
 
 The following information should help you get setup to run the examples.
