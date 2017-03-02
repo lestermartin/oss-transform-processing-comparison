@@ -3,6 +3,7 @@
 This project is intended to house the examples used in my upcoming DevNexus [Transformation Processing Smackdown; Spark vs Hive vs Pig](http://devnexus.com/s/devnexus2017/presentations/17533) presentation.
 
 Video recording of materials walkthrough.
+
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=36_MayK5eU4" target="_blank"><img src="http://img.youtube.com/vi/36_MayK5eU4/0.jpg" 
 alt="Ingesting into HDFS" width="240" height="180" border="10" /></a>
 
@@ -10,6 +11,9 @@ alt="Ingesting into HDFS" width="240" height="180" border="10" /></a>
 
 [![You Tube Video](https://img.youtube.com/vi/36_MayK5eU4/0.jpg)](https://www.youtube.com/watch?v=36_MayK5eU4)
 
+
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/NeNxKvlzS7sRZw" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/lestermartin/transformation-processing-smackdown-spark-vs-hive-vs-pig" title="Transformation Processing Smackdown; Spark vs Hive vs Pig" target="_blank">Transformation Processing Smackdown; Spark vs Hive vs Pig</a> </strong> from <strong><a target="_blank" href="//www.slideshare.net/lestermartin">Lester Martin</a></strong> </div>
 
 
 
