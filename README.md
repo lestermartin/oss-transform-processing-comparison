@@ -2,6 +2,16 @@
 
 This project is intended to house the examples used in my upcoming DevNexus [Transformation Processing Smackdown; Spark vs Hive vs Pig](http://devnexus.com/s/devnexus2017/presentations/17533) presentation.
 
+Video recording of materials walkthrough.
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=36_MayK5eU4&t=1315s" target="_blank"><img src="http://img.youtube.com/vi/v=36_MayK5eU4&t=1315s/0.jpg" 
+alt="Ingesting into HDFS" width="240" height="180" border="10" /></a>
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/36_MayK5eU4&t=1315s/0.jpg)](https://www.youtube.com/watch?v=36_MayK5eU4&t=1315s)
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/36_MayK5eU4&t=1315s/0.jpg)](http://www.youtube.com/watch?v=36_MayK5eU4&t=1315s "Video Title")
+
+
+
 ## Setup
 
 The following information should help you get setup to run the examples.
